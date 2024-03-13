@@ -77,3 +77,14 @@ You can also build and install vLLM from source:
 
     since it will give you incremental builds. The downside is that this method
     is `deprecated by setuptools <https://github.com/pypa/setuptools/issues/917>`_.
+
+.. note::
+    If you are building vLLM from source on CUDA 11.8, consider building vLLM with ``--no-build-isolation``.
+
+    .. code-block:: console
+
+        $ # Installing PyTorch and xFormers with CUDA 11.8 with pip
+        $ pip install --index-url https://download.pytorch.org/whl/cu118 torch==2.1.2 xformers==0.0.23.post1
+        $
+        $ # Build vLLM without isolation environment.
+        $ pip install -e . --no-build-isolation
