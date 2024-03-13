@@ -180,7 +180,9 @@ def get_ip() -> str:
     except OSError:
         # try ipv6
         s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-        s.connect(("dns.google", 80))
+        # Note: IPv6 DNS address of google.
+        # https://developers.google.com/speed/public-dns/docs/using#addresses
+        s.connect(("2001:4860:4860:0:0:0:0:8888", 80))
         return s.getsockname()[0]
 
 
